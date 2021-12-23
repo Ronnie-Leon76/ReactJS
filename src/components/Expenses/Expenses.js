@@ -1,10 +1,16 @@
 import ExpenseItem from "./ExpenseItem";
-import './Expenses.css'
+import "./Expenses.css";
 import React from "react";
+import ExpenseFilter from "./ExpenseFilter";
 
 function Expenses(props) {
+  const filterChangeHandler = selectedYear => {
+    console.log("Expenses.js")
+    console.log(selectedYear)
+  }
   return (
     <div className="expenses">
+      <ExpenseFilter onValueSelection={filterChangeHandler} />
       <ExpenseItem
         title={props.items[0].title}
         amount={props.items[0].amount}

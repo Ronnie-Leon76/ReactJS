@@ -2,6 +2,10 @@ import Expenses from './components/Expenses/Expenses'
 import NewExpense from './components/NewExpense/NewExpense'
  
 function App() {
+  const addExpenseHandler = expense => {
+    console.log("In app.js")
+    console.log(expense)
+  }
   const expenses = [
     {
       id: "e1",
@@ -23,10 +27,13 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+  const chooseOption = option => {
+    console.log(option)
+  }
   return (
     <div>
-      <NewExpense />
-      <Expenses items={expenses} />
+      <NewExpense onAddExpense={addExpenseHandler}/>
+      <Expenses items={expenses} onOptionSelected={chooseOption}/>
     </div>
   );
 }
